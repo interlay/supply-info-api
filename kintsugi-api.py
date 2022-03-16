@@ -1,12 +1,10 @@
 from flask import Flask, json
 import requests
+import os
 
 SUBSCAN_URL = "https://kintsugi.api.subscan.io/"
 
-API_KEY_PATH = "api-key.txt"
-
-with open(API_KEY_PATH, 'r') as file:
-    API_KEY = file.read().rstrip()
+API_KEY = os.environ.get('SUBSCAN_API_KEY')
 
 
 def from_10_decimals(val):
